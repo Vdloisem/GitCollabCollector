@@ -1,39 +1,23 @@
-Lang1;Lang2;FullName;artifacts_analyzed;difficulty_keywords_found;difficulty_density;repo_has_difficulty
-Prolog;Curry;curry-language/kics2;2;0;0.0;False
-Prolog;Curry;curry-language/curry2go;1;0;0.0;False
-Prolog;Curry;cau-placc/pakcs;2;0;0.0;False
-Prolog;Java;robert-david/shacl-repairs;1;0;0.0;False
-Prolog;Java;rug-compling/Alpino;15;0;0.0;False
-Prolog;Java;trueagi-io/metta-wam;296;2;0.0068;True
-Prolog;Java;saetre/busstuc;1;0;0.0;False
-Prolog;Java;maxbarsukov/itmo;7;0;0.0;False
-Curry;Haskell;curry-language/kics2;2;0;0.0;False
-Curry;Haskell;curry-language/curry2go;1;0;0.0;False
-Haskell;Erlang;erszcz/learning;33;1;0.0303;True
-Haskell;Erlang;YoshikuniJujo/test_haskell;2;0;0.0;False
-Haskell;Erlang;CloudI/CloudI;231;0;0.0;False
-Haskell;Java;GaloisInc/saw-script;1551;73;0.0471;True
-Haskell;Java;digital-asset/cn-quickstart;131;3;0.0229;True
-Haskell;Java;GaloisInc/crucible;1232;29;0.0235;True
-Haskell;Java;iharh/notes;1;0;0.0;False
-OCaml;Erlang;facebook/infer;1135;57;0.0502;True
-OCaml;Erlang;erszcz/learning;33;1;0.0303;True
-OCaml;Erlang;CloudI/CloudI;231;0;0.0;False
-Erlang;C;apache/couchdb;3723;40;0.0107;True
-Erlang;C;gozeon/cheatsheets;1;0;0.0;False
-Erlang;C;emqx/emqx;5133;607;0.1183;True
-Erlang;C;erszcz/learning;33;1;0.0303;True
-Erlang;C;CloudI/CloudI;231;0;0.0;False
-Erlang;C;erlang/otp;5238;93;0.0178;True
-Erlang;C;grisp/grisp;168;1;0.006;True
-Erlang;C;openworkload/swm-core;5;0;0.0;False
-Erlang;C;mbj4668/yanger;58;0;0.0;False
-Erlang;C;sigscale/ocs;3;0;0.0;False
-Erlang;C;Olivier-Boudeville/Ceylan-Myriad;1;0;0.0;False
-Erlang;C;couchbase/couchdb;7;0;0.0;False
-Erlang;C;processone/xmpp;100;4;0.04;True
-Erlang;C;atomvm/AtomVM;1494;31;0.0207;True
-Erlang;C;happi/theBeamBook;197;0;0.0;False
-Erlang;C;ArweaveTeam/arweave;801;19;0.0237;True
-Erlang;C;Pevensie/jargon;3;0;0.0;False
-Erlang;C;vernemq/vernemq;1475;135;0.0915;True
+Lang1;Lang2;FullName;artifacts_analyzed;difficulty_keywords_found;difficulty_density;repo_has_difficulty;keywords_detected
+Prolog;Java;rug-compling/Alpino;15;1;0.0667;True;ffi
+Prolog;Java;trueagi-io/metta-wam;296;36;0.1216;True;"idl; manual config; binding; wrapper; ffi; nif; libffi"
+Haskell;Erlang;CloudI/CloudI;231;24;0.1039;True;"thrift; undefined symbol; ffi; swig; port driver; erlang port; nif; idl"
+Haskell;Java;GaloisInc/crucible;1234;147;0.1191;True;"undefined reference; binding; signature mismatch; stub; wrapper; ffi; bridge; type mismatch; nan; interop; linker error; ctype; nif; idl"
+Haskell;Java;GaloisInc/saw-script;1552;199;0.1282;True;"interoperability; linking error; binding; stub; wrapper; ffi; bridge; type mismatch; nan; python bindings; interop; foreign function; linker error; ctype; nif"
+Haskell;Java;digital-asset/cn-quickstart;134;24;0.1791;True;"binding; grpc; ffi; napi; nan; nif; idl"
+E;C;universal-ctags/ctags;3191;153;0.0479;True;"linking error; multi-language; thrift; undefined symbol; jni; idl; undefined reference; so not found; stub; type mismatch; nan; linker error; binding; grpc; ffi; napi; jsr; ctype; nif; interoperability; wrapper; interop"
+OCaml;Erlang;facebook/infer;1135;162;0.1427;True;"undefined symbol; jni; idl; node-gyp; undefined reference; stub; c node; dlopen; nan; binding; corba; ffi; bridge; integration error; jsr; ctype; nif; custom wrapper; wrapper; libffi"
+OCaml;Erlang;CloudI/CloudI;231;24;0.1039;True;"thrift; undefined symbol; ffi; swig; port driver; erlang port; nif; idl"
+Erlang;C;happi/theBeamBook;197;1;0.0051;True;nif
+Erlang;C;mbj4668/yanger;58;5;0.0862;True;"napi; ffi; ctype; nif"
+Erlang;C;CloudI/CloudI;231;24;0.1039;True;"thrift; undefined symbol; ffi; swig; port driver; erlang port; nif; idl"
+Erlang;C;ArweaveTeam/arweave;802;110;0.1372;True;"undefined symbol; wrapper; ffi; bridge; symbol not found; dlopen; foreign block; nan; erlang port; nif; idl"
+Erlang;C;apache/couchdb;3723;327;0.0878;True;"thrift; idl; node-gyp; undefined reference; stub; c node; dlopen; nan; linker error; binding; ffi; bridge; napi; jsr; ctype; nif; interoperability; wrapper; interop"
+Erlang;C;rxrbln/t2sde;237;23;0.097;True;"linking error; undefined reference; undefined symbol; wrapper; ffi; glue code; symbol not found; type mismatch; nan"
+Erlang;C;universal-ctags/ctags;3191;153;0.0479;True;"linking error; multi-language; thrift; undefined symbol; jni; idl; undefined reference; so not found; stub; type mismatch; nan; linker error; binding; grpc; ffi; napi; jsr; ctype; nif; interoperability; wrapper; interop"
+Erlang;C;grisp/grisp;168;11;0.0655;True;"ffi; bridge; port driver; nif"
+Erlang;C;vernemq/vernemq;1476;246;0.1667;True;"binding; undefined symbol; stub; wrapper; ffi; c node; bridge; jpl; nan; erlang port; nif; idl"
+Erlang;C;emqx/emqx;5132;940;0.1832;True;"manual patch; binding; grpc; thrift; jna; wrapper; ffi; c node; bridge; bridge module; napi; nan; graalvm; jni; bridge logic; nif; idl"
+Erlang;C;processone/xmpp;100;13;0.13;True;"binding; thrift; ffi; nif; idl"
+Erlang;C;atomvm/AtomVM;1494;206;0.1379;True;"interoperability; undefined reference; binding; stub; wrapper; ffi; ctype; port driver; dlopen; type mismatch; nan; missing symbol; jni; interop; nif"
+Erlang;C;erlang/otp;5240;579;0.1105;True;"undefined symbol; idl; wrapper module; stub; c node; dlopen; type mismatch; nan; symbol clash; binding; wrong arity; corba; ffi; bridge; port driver; napi; erlang port; ctype; nif; interoperability; wrapper; interop"

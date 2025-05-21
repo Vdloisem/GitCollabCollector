@@ -28,28 +28,67 @@ KEYWORDS = [
     # Interop and FFI
     "interop", "interoperability", "cross-language", "multi-language", "multilanguage",
     "foreign function", "foreign function interface", "FFI", "FFI binding", "FFI bindings",
-    "foreign language interface", "foreign function call", "foreign code interface",
-    "language binding", "interop layer", "language bridge", "native interface", "interop wrapper",
+    "FFI bridge", "FFI layer", "FFI wrapper", "ffi", "ffi binding", "ffi bindings", "ffi bridge",
+    "ffi layer", "ffi wrapper", "foreign language interface", "foreign function call",
+    "foreign code interface", "language binding", "language bindings", "language bridge",
+    "interop layer", "native interface", "interop wrapper", "native binding", "native bindings",
+    "platform binding", "platform bindings", "interop layer", "interlanguage wrapper",
+    "interlanguage adapter", "binding generator", "interop toolkit",
 
     # Explicit technical integration
-    "wrapper", "glue code", "interface adapter", "interface adapters",
-    "custom wrapper", "manual wiring", "binding", "bridge", "stub",
+    "wrapper", "glue code", "interface adapter", "interface adapters", "custom wrapper",
+    "manual wiring", "binding", "bridge", "stub", "interop code", "language integration layer",
+    "handwritten adapter", "adapter layer", "interlanguage adapter", "shim layer",
+    "compatibility wrapper", "binding layer", "integration scaffold", "integration module",
+    "wrapper module", "bridge module", "intermediate wrapper", "proxy layer", "adapter pattern",
+    "interop facade", "had to write a wrapper", "had to adapt manually", "manual integration logic",
+    "glue logic", "hand-coded adapter", "language glue", "bridge logic",
 
     # Interlanguage incompatibilities
     "language mismatch", "interface mismatch", "type mismatch", "ABI mismatch",
-    "symbol not found", "undefined reference",
+    "symbol not found", "undefined reference", "signature mismatch",
+    "method signature mismatch", "incompatible types", "type coercion failed",
+    "binary incompatibility", "calling convention mismatch", "missing symbol", "undefined symbol",
+    "unresolved external", "linker error", "linking error", "symbol clash",
+    "symbol conflict", "cannot resolve symbol", "failed to link", "undefined identifier",
+    "foreign function not found", "module not found", "dll not found", "so not found",
+    "missing foreign declaration", "invalid cast", "foreign type error",
+    "type conversion error", "wrong arity", "unexpected argument type", "wrong type at runtime",
 
     # Interoperability frameworks and tools
-    "SWIG", "JNI", "JNA", "JPL", "JSR223", "GraalVM", "Truffle", "javacall",
-    "pybind11", "CFFI", "Ctypes", "NIF", "NAPI", "swi-prolog-jpl", "jpl.jar",
+    "SWIG", "swig", "JNI", "jni", "JNA", "jna", "JPL", "jpl", "JSR223", "jsr223", "jsr",
+    "GraalVM", "graalvm", "Truffle", "truffle", "javacall", "Java Native Interface"
+    "pybind11", "CFFI", "cffi", "Ctypes", "ctype", "NIF", "nif", "NAPI", "napi",
+    "swi-prolog-jpl", "jpl.jar", "SWI", "boost.python", "python-cffi", "python bindings",
+    "foreign function interface", "libffi", "dlopen", "dlsym", "ctypeslib", "node-addon-api",
+    "nan", "NAN", "node-gyp", "node-ffi", "ffi-napi", "node-FFI", "FFI-napi", "ffi-NAPI", "FFI-NAPI",
+    "Native Implemented Function", "native implemented function", "port driver", "Erlang port",
+    "C node", "erlang port", "c node", "polyglot context", "GraalVM interop", "Graal interop",
+    "graalvm interop", "graal interop", "Graal interoperability", "graalvm interoperability",
+    "graal interoperability", "IDL", "idl", "Interface Definition Language", "CORBA", "corba",
+    "Thrift", "thrift", "gRPC", "grpc", "protobuf interop", "protobuf interoperability",
+    "P/Invoke", "Platform Invocation", "platform invocation", "CLR interop", "clr interop",
+    "COM interop", "com interop", "CLR interoperability", "clr interoperability",
+    "COM interoperability", "com interoperability", "DllImport", "dllimport",
+    "cbindgen", "bindgen", "Rust FFI", "Rust ffi", "rust FFI", "rust ffi",
+    "Rust interoperability", "extern \"C\"",
 
     # Specific issues related to interoperability
     "integration problem", "integration issue", "integration error", "errors integrating",
-    "failed integration", "integration fails", "integration failed",
-    "manual override", "configuration hell", "multi-build-system", "multiple compilers",
+    "failed integration", "integration fails", "integration failed", "manual override",
+    "configuration hell", "multi-build-system", "multiple compilers", "fails to integrate",
+    "can't integrate", "unable to integrate", "manual integration", "manual glue", "manual config",
+    "manual fix", "manual patch", "manual adjustment", "handwritten interop", "multi-build-system",
+    "multiple compilers", "toolchain mismatch",  "fragile integration", "brittle integration",
+    "unstable integration", "hard to maintain interop", "interop not scalable",
 
     # Interface modules or syntaxes
-    "foreign predicate", "interface module"
+    "foreign predicate", "interface module", "foreign module", "foreign interface",
+    "interface declaration", "external interface", "interop declaration",
+    "language interface", "bridge module", "interop module",
+    "foreign block", "foreign import", "foreign export",
+    "native declaration", "foreign definition", "external binding",
+    "module binding", "foreign section",
 ]
 
 
@@ -156,15 +195,15 @@ def fetch_readme(repo):
 
 def analyze_text(text):
     """
-        Counts how many predefined keywords are present in the given text.
+        Returns the list of keywords found in the given text.
 
         Parameters:
             text (str): The text to analyze.
 
         Returns:
-            int: Number of keywords found in the text.
-        """
-    return sum(1 for kw in KEYWORDS if kw in text.lower())
+            str: keywords found in the text.
+    """
+    return [kw for kw in KEYWORDS if kw in text.lower()]
 
 
 def analyze_repo(repo):
@@ -175,29 +214,36 @@ def analyze_repo(repo):
             repo (str): Repository full name (e.g., "owner/repo").
 
         Returns:
-            tuple[int, int]: A tuple (score, total_artifacts) where:
+            tuple[int, int, int, int]: (score, total_artifacts, pr_count, issue_count) where:
                 - score is the total number of keyword occurrences found,
                 - total_artifacts is the number of analyzed elements (PRs + issues + README).
+                - pr_count is the count of pull requests
+                - issue_count is the count of issues
     """
     prs = fetch_pull_requests(repo)
     issues = fetch_issues(repo)
     readme = fetch_readme(repo)
 
-    score = 0
+    pr_count = len(prs)
+    issue_count = len(issues)
+
+    matched_keywords = []
+
     for pr in prs:
         text = (pr.get("title") or "") + " " + (pr.get("body") or "")
-        score += analyze_text(text)
+        matched_keywords.extend(analyze_text(text))
 
     for issue in issues:
         if "pull_request" in issue:
             continue
         text = (issue.get("title") or "") + " " + (issue.get("body") or "")
-        score += analyze_text(text)
+        matched_keywords.extend(analyze_text(text))
 
-    score += analyze_text(readme)
+    matched_keywords.extend(analyze_text(readme))
 
-    total_artifacts = len(prs) + len(issues) + 1
-    return score, total_artifacts
+    total_artifacts = pr_count + issue_count + 1
+    score = len(matched_keywords)
+    return score, total_artifacts, pr_count, issue_count, matched_keywords
 
 
 def analyze_all(csv_path, detailed_output, summary_output, max_repos):
@@ -215,6 +261,7 @@ def analyze_all(csv_path, detailed_output, summary_output, max_repos):
     """
     df = pd.read_csv(csv_path, sep=',')
     all_results = []
+    skipped_repos = 0
 
     for _, row in df.iterrows():
         repo = row['FullName']
@@ -223,9 +270,14 @@ def analyze_all(csv_path, detailed_output, summary_output, max_repos):
         logger.info(f"|-> Analysis of {repo} ({lang1}-{lang2})...")
 
         try:
-            score, total_items = analyze_repo(repo)
+            score, total_items, pr_count, issue_count, keywords_found = analyze_repo(repo)
         except Exception as e:
             logger.exception(f"Error analysing repository {repo} : {e}")
+            continue
+
+        if pr_count < 5 or issue_count < 5:
+            logger.debug(f"Skipping {repo} (PRs: {pr_count}, Issues: {issue_count})")
+            skipped_repos += 1
             continue
 
         has_difficulty = score > 0
@@ -238,9 +290,12 @@ def analyze_all(csv_path, detailed_output, summary_output, max_repos):
             "artifacts_analyzed": total_items,
             "difficulty_keywords_found": score,
             "difficulty_density": difficulty_density,
-            "repo_has_difficulty": has_difficulty
+            "repo_has_difficulty": has_difficulty,
+            "keywords_detected": "; ".join(set(keywords_found))
         })
         time.sleep(0.5)
+
+    logger.info(f"Skipped {skipped_repos} repositories with insufficient PRs or issues.")
 
     detailed_df = pd.DataFrame(all_results)
     detailed_df.to_csv(detailed_output, sep=';', index=False)

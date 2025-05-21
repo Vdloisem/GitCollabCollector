@@ -38,7 +38,8 @@ github_langs = {
     "C": "C",
     "Occam": "Occam",
     "Java": "Java",
-    "CLU": "CLU"
+    "CLU": "CLU",
+    "E": "E",
 }
 
 
