@@ -8,12 +8,12 @@ This project aims to **identify and analyze technical difficulties** in GitHub r
 
 ## Features
 
-- ✅ Automatically selects GitHub repositories with two languages based on low collaboration score.
-- 🔎 Fetches README, PRs, and issues using the GitHub API.
-- 🧠 Scans for keywords indicating interoperability difficulties (e.g., FFI, JNI, GraalVM, etc.).
-- 📊 Generates detailed and summary CSV reports.
-- 🛑 Filters out repositories with insufficient PRs or issues (< 5 each).
-- 🧪 Ready for empirical validation of a collaboration metric.
+- Automatically selects GitHub repositories with two languages based on low collaboration score.
+- Fetches README, PRs, and issues using the GitHub API.
+- Scans for keywords indicating interoperability difficulties (e.g., FFI, JNI, GraalVM, etc.).
+- Generates detailed and summary CSV reports.
+- Filters out repositories with insufficient PRs or issues (< 5 each).
+- Ready for empirical validation of a collaboration metric.
 
 ## Repository Structure
 
@@ -52,11 +52,11 @@ Prepare a CSV file named `CollaborationMetric_Languages_Cleaned.csv` with the co
 You have two options to obtain this file:
 
 1. **Generate the report yourself** using the Haskell program available at:  
-   👉 https://github.com/Vdloisem/MCC.git  
+   -> https://github.com/Vdloisem/MCC.git  
    This tool computes collaboration scores between pairs of programming languages based on a formal taxonomy.
 
 2. **Download the already generated report** from Zenodo (recommended for quick start):  
-   👉 [Zenodo Record](https://zenodo.org/records/11077187?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjQ3MDAxNTQ1LTNmYzUtNDFmOC05ZTIwLTA0ZWVmZWE1Y2FiOSIsImRhdGEiOnt9LCJyYW5kb20iOiIxZTA2MzEzZmUxYjQzMWY2MWFkMDhiYjY0ODBmMmVjOCJ9.wQQVUC4AWlVStEtY7zSoEIAGh6wOHHrlrH6AtI3VpODXTJQCCLj4DYAuOkCPF6lkTLNQSjC9D_Cv9yhMm6iLmQ)
+   -> [Zenodo Record](https://zenodo.org/records/11077187?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjQ3MDAxNTQ1LTNmYzUtNDFmOC05ZTIwLTA0ZWVmZWE1Y2FiOSIsImRhdGEiOnt9LCJyYW5kb20iOiIxZTA2MzEzZmUxYjQzMWY2MWFkMDhiYjY0ODBmMmVjOCJ9.wQQVUC4AWlVStEtY7zSoEIAGh6wOHHrlrH6AtI3VpODXTJQCCLj4DYAuOkCPF6lkTLNQSjC9D_Cv9yhMm6iLmQ)
 
 
 Run the main analysis:
